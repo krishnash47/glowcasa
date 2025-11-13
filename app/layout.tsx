@@ -30,7 +30,9 @@ export const metadata: Metadata = {
     description:
       "Leading provider of innovative LED lights, smart lighting systems, and industrial lighting solutions.",
   },
-    generator: 'v0.app'
+  icons: {
+    icon: "/logo.png", // 👈 this line adds your favicon
+  },
 }
 
 export default function RootLayout({
