@@ -31,16 +31,16 @@ export function Footer() {
               <div className="flex items-center space-x-2 text-sm">
                 <Phone className="h-4 w-4" />
                 <a 
-                  href="tel:+918306882537" 
+                  href="Tool Free Number:1800-8900-686" 
                   className="text-secondary-foreground/80 hover:text-secondary-foreground transition-colors"
                 >
-                  +91 83068 82537
+                  1800-8900-686
                 </a>
               </div>
               <div className="flex items-center space-x-2 text-sm">
                 <Mail className="h-4 w-4" />
                 <a 
-                  href="mailto:glowcasapvtltd@gmail.com" 
+                  href="Mailto :glowcasapvtltd@gmail.com" 
                   className="text-secondary-foreground/80 hover:text-secondary-foreground transition-colors"
                 >
                   glowcasapvtltd@gmail.com
@@ -48,7 +48,7 @@ export function Footer() {
               </div>
               <div className="flex items-center space-x-2 text-sm">
                 <MapPin className="h-4 w-4" />
-                <span>Mumbai, India</span>
+                <span>Khasara No. 188/2, Ramsinghpura Urf Rampura,Sanganer, Jaipur, Rajasthan,302029</span>
               </div>
             </div>
           </div>

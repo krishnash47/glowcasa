@@ -231,8 +231,8 @@ export default function ContactPage() {
                       <Phone className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <h3 className="font-semibold">Phone</h3>
-                      <p className="text-muted-foreground">1800-8900-686 & +91 83068 82537</p>
+                      <h3 className="font-semibold">Tool Free Number</h3>
+                      <p className="text-muted-foreground">1800-8900-686</p>
                       <p className="text-sm text-muted-foreground">Mon-Fri 8AM-6PM EST</p>
                     </div>
                   </div>
@@ -256,8 +256,8 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="font-semibold">Address</h3>
-                      <p className="text-muted-foreground">Mansarover, </p>
-                      <p className="text-muted-foreground">Jaipur</p>
+                      <p className="text-muted-foreground">Khasara No. 188/2, Ramsinghpura Urf Rampura,Sanganer</p>
+                      <p className="text-muted-foreground">Jaipur, Rajasthan – 302029</p>
                     </div>
                   </div>
 

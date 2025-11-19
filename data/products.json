@@ -10,57 +10,65 @@
       "id": "commercial-lighting",
       "name": "Commercial Lighting",
       "description": "Weather-resistant Commercial lighting solutions",
-      "image": "https://res.cloudinary.com/dzdyydnkj/image/upload/v1763017574/roadlight_je9cak.png"
+      "image": "/commercial.webp"
     },
     {
       "id": "industrial-lighting",
       "name": "Industrial Lighting",
       "description": "Heavy-duty lighting for industrial applications",
-      "image": "https://res.cloudinary.com/dzdyydnkj/image/upload/v1763017575/tunnel_elx1cb.png"
+      "image": "/decorrrr.jpg"
     }
   ],
   "products": [
     {
-      "id": "nova-deep-cob",
-      "serial": 1,
-      "name": "Nova Deep COB",
+      "id": "ace-cob-tiltable-cylinder",
+      "serial": 6,
+      "name": "Ace COB Tiltable Cylinder",
       "category": "residential-lighting",
-      "image": "https://res.cloudinary.com/dzdyydnkj/image/upload/v1763017661/nova_qpwqv8.png",
-      "price": 250,
-      "description": "Compact recessed COB light ideal for modern interiors with efficient illumination.",
+      "price": 960,
+      "image": "https://res.cloudinary.com/dzdyydnkj/image/upload/v1763017618/ace_cob_dikn80.png",
+      "description": "Adjustable tiltable COB cylinder with 358° rotation and 0-90° tilt angle.",
       "features": [
-        "COB LED technology",
-        "Available in Warm White, Neutral White, and Cool White",
-        "Multiple trim colors: Green, Blue, Red, Pink",
-        "Wide voltage range 100V-300V AC"
+        "358° rotation capability",
+        "0-90° tilt angle adjustment",
+        "Available in 3000K, 4000K, 6000K",
+        "High-efficiency COB LED technology"
       ],
       "variants": [
         {
-          "id": "nova-deep-cob-3w",
-          "item_code": "GC/L/DEEP/DP/COB/3W",
-          "power": "3W",
-          "price": 250,
+          "id": "ace-cob-tiltable-cylinder-7w",
+          "item_code": "GC/L/ACE/TCY/BK/RG/7W",
+          "power": "7W",
+          "price": 960,
           "specifications": {
-            "power": "3W",
-            "lumens_per_watt": "≥80",
+            "power": "7W",
+            "lumens": "630lm",
             "operating_voltage": "100V - 300V",
-            "rated_voltage": "220-240V AC",
-            "dimensions": "Ø60 × 40 mm",
-            "cutout": "Ø60 mm"
+            "dimension": "Ø63 mm"
           }
         },
         {
-          "id": "nova-deep-cob-7w",
-          "item_code": "GC/L/DL/DP/COB/7W",
-          "power": "7W",
-          "price": 350,
+          "id": "ace-cob-tiltable-cylinder-12w",
+          "item_code": "GC/L/ACE/TCY/BK/RG/12W",
+          "power": "12W",
+          "price": 1350,
           "specifications": {
-            "power": "7W",
-            "lumens_per_watt": "≥80",
+            "power": "12W",
+            "lumens": "1080lm",
             "operating_voltage": "100V - 300V",
-            "rated_voltage": "220-240V AC",
-            "dimensions": "Ø77 × 48 mm",
-            "cutout": "Ø77 mm"
+            "dimension": "Ø78 mm"
+          }
+        },
+        {
+          "id": "ace-cob-tiltable-cylinder-18w",
+          "item_code": "GC/L/ACE/TCY/BK/RG/18W",
+          "power": "18W",
+          "price": 1800,
+          "specifications": {
+            "power": "18W",
+            "lumens": "1620lm",
+            "operating_voltage": "100V - 300V",
+            "dimension": "Ø88 mm"
           }
         }
       ]
@@ -83,8 +91,8 @@
         "power": "7W",
         "lumens_per_watt": "≥110",
         "operating_voltage": "100V - 300V",
-        "rated_voltage": "140-280V AC",
-        "dimensions": "Ø75 × 44 mm",
+        "rated_voltage": "140-280 AC",
+        "dimensions": "110 × 44 mm",
         "cutout": "Ø75 mm"
       }
     },
@@ -188,6 +196,51 @@
       ]
     },
     {
+      "id": "nova-deep-cob",
+      "serial": 1,
+      "name": "Nova Deep COB",
+      "category": "residential-lighting",
+      "image": "https://res.cloudinary.com/dzdyydnkj/image/upload/v1763017661/nova_qpwqv8.png",
+      "price": 250,
+      "description": "Compact recessed COB light ideal for modern interiors with efficient illumination.",
+      "features": [
+        "COB LED technology",
+        "Available in Warm White, Neutral White, and Cool White",
+        "Multiple trim colors: Green, Blue, Red, Pink",
+        "Wide voltage range 100V-300V AC"
+      ],
+      "variants": [
+        {
+          "id": "nova-deep-cob-3w",
+          "item_code": "GC/L/DEEP/DP/COB/3W",
+          "power": "3W",
+          "price": 250,
+          "specifications": {
+            "power": "3W",
+            "lumens_per_watt": "≥80",
+            "operating_voltage": "100V - 300V",
+            "rated_voltage": "220-240V AC",
+            "dimensions": "Ø75 × 40 mm",
+            "cutout": "Ø60 mm"
+          }
+        },
+        {
+          "id": "nova-deep-cob-7w",
+          "item_code": "GC/L/DL/DP/COB/7W",
+          "power": "7W",
+          "price": 350,
+          "specifications": {
+            "power": "7W",
+            "lumens_per_watt": "≥80",
+            "operating_voltage": "100V - 300V",
+            "rated_voltage": "220-240V AC",
+            "dimensions": "Ø77 × 48 mm",
+            "cutout": "Ø77 mm"
+          }
+        }
+      ]
+    },
+    {
       "id": "ace-cob-surface-cylinder",
       "serial": 5,
       "name": "Ace COB Surface Cylinder",
@@ -241,59 +294,6 @@
       ]
     },
     {
-      "id": "ace-cob-tiltable-cylinder",
-      "serial": 6,
-      "name": "Ace COB Tiltable Cylinder",
-      "category": "residential-lighting",
-      "price": 960,
-      "image": "https://res.cloudinary.com/dzdyydnkj/image/upload/v1763017618/ace_cob_dikn80.png",
-      "description": "Adjustable tiltable COB cylinder with 358° rotation and 0-90° tilt angle.",
-      "features": [
-        "358° rotation capability",
-        "0-90° tilt angle adjustment",
-        "Available in 3000K, 4000K, 6000K",
-        "High-efficiency COB LED technology"
-      ],
-      "variants": [
-        {
-          "id": "ace-cob-tiltable-cylinder-7w",
-          "item_code": "GC/L/ACE/TCY/BK/RG/7W",
-          "power": "7W",
-          "price": 960,
-          "specifications": {
-            "power": "7W",
-            "lumens": "630lm",
-            "operating_voltage": "100V - 300V",
-            "dimension": "Ø63 mm"
-          }
-        },
-        {
-          "id": "ace-cob-tiltable-cylinder-12w",
-          "item_code": "GC/L/ACE/TCY/BK/RG/12W",
-          "power": "12W",
-          "price": 1350,
-          "specifications": {
-            "power": "12W",
-            "lumens": "1080lm",
-            "operating_voltage": "100V - 300V",
-            "dimension": "Ø78 mm"
-          }
-        },
-        {
-          "id": "ace-cob-tiltable-cylinder-18w",
-          "item_code": "GC/L/ACE/TCY/BK/RG/18W",
-          "power": "18W",
-          "price": 1800,
-          "specifications": {
-            "power": "18W",
-            "lumens": "1620lm",
-            "operating_voltage": "100V - 300V",
-            "dimension": "Ø88 mm"
-          }
-        }
-      ]
-    },
-    {
       "id": "sonic-spike-light",
       "serial": 7,
       "name": "Sonic Spike Light",
@@ -339,9 +339,9 @@
       }
     },
     {
-      "id": "pulse-led-downlight",
+      "id": "alpha",
       "serial": 9,
-      "name": "Pulse LED Downlight",
+      "name": "Alpha",
       "category": "residential-lighting",
       "price": 250,
       "image": "https://res.cloudinary.com/dzdyydnkj/image/upload/v1763017568/pulse_uprfk4.png",
@@ -860,7 +860,7 @@
       "description": "Premium track lighting system with aluminum housing for retail and commercial spaces.",
       "features": [
         "Available in 10W, 20W, and 30W",
-        "Aluminum housing construction",
+        "WW,CW,NW",
         "Color temperatures: 3000K, 4000K, 6500K",
         "1-meter track rail included separately"
       ],
@@ -944,7 +944,7 @@
       "image": "https://res.cloudinary.com/dzdyydnkj/image/upload/v1763017639/sumo_o5iljg.png",
       "description": "LED mirror light perfect for bathrooms and vanity areas.",
       "features": [
-        "Available in WW, NW, CW",
+        "Available in WW, NW, CW , CW + blue,",
         "High efficiency ≥100 lm/W",
         "Wide voltage range 100V-300V",
         "Sleek modern design"
@@ -1022,16 +1022,16 @@
       ]
     },
     {
-      "id": "sonic-outdoor-3in1-step",
+      "id": "sonic-wall-lights",
       "serial": 26,
-      "name": "Sonic Outdoor Lights (3-in-1 Step)",
+      "name": "Sonic Wall Lights",
       "category": "residential-lighting",
       "price": 790,
       "image": "https://res.cloudinary.com/dzdyydnkj/image/upload/v1763017574/sonic_outdoor_light_apw3of.png",
       "description": "Multi-directional outdoor wall light with aluminum housing.",
       "features": [
         "Available in 2W, 4W, and 6W",
-        "3000K Warm White and RGBP options",
+        "3000K Warm White and RGBP, 3 in 1 steps",
         "Multi-directional lighting (2-way, 4-way, 6-way)",
         "Aluminum construction for durability"
       ],
@@ -1324,7 +1324,7 @@
       "name": "Bolt Street Light",
       "category": "industrial-lighting",
       "price": 1100,
-      "image": "https://res.cloudinary.com/dzdyydnkj/image/upload/v1763017640/vector_u9l37p.png",
+      "image": "/streetlight.png",
       "description": "Energy-saving street light for outdoor and roadway applications.",
       "features": [
         "Energy Saving & Eco Friendly",
@@ -1464,6 +1464,7 @@
         "Decorative design",
         "Wide voltage range 100V-300V",
         "Efficiency ≥70 lm/W",
+        "Colours :- CW,NW,WW",
         "Diameter 115mm"
       ],
       "specifications": {

@@ -4,7 +4,7 @@ import { useState } from "react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import Image from "next/image"
-import { X, Play } from "lucide-react"
+import { X } from "lucide-react"
 
 interface GalleryItem {
   type: "image" | "video"
@@ -17,6 +17,10 @@ const galleryItems: GalleryItem[] = [
  {
     type: "video",
     src: "https://res.cloudinary.com/dzdyydnkj/video/upload/v1763022358/Glowcasa_ecakgk.mp4",
+  },
+  {
+    type: "image",
+    src: "/event.jpeg",
   },
 ]
 

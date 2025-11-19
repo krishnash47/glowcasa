@@ -110,7 +110,7 @@ export default function ProductsPage() {
     <Card className="group hover:shadow-lg transition-shadow">
       <CardContent className="p-6">
         <div className="flex gap-6">
-          <div className="relative h-32 w-32 flex-shrink-0 overflow-hidden rounded-lg">
+          <div className="relative h-32 w-32 shrink-0 overflow-hidden rounded-lg">
             <Image
               src={product.image || "/placeholder.svg"}
               alt={product.name}
@@ -217,6 +217,18 @@ export default function ProductsPage() {
               </Select>
             </div>
 
+<div className="flex items-center gap-5">
+
+            <div >
+              <Button asChild className="w-full" variant="outline">
+                <a
+                  href="/glowcasaCatalogue.pdf"
+                  download="Glowcasa Catalogue.pdf"
+                  >
+                  Download Catalogue
+                </a>
+              </Button>
+            </div>
             <div className="flex items-center gap-2">
               <span className="text-sm text-muted-foreground">{filteredAndSortedProducts.length} products</span>
               <div className="flex border rounded-md">
@@ -225,7 +237,7 @@ export default function ProductsPage() {
                   size="sm"
                   onClick={() => setViewMode("grid")}
                   className="rounded-r-none"
-                >
+                  >
                   <Grid className="h-4 w-4" />
                 </Button>
                 <Button
@@ -233,10 +245,11 @@ export default function ProductsPage() {
                   size="sm"
                   onClick={() => setViewMode("list")}
                   className="rounded-l-none"
-                >
+                  >
                   <List className="h-4 w-4" />
                 </Button>
               </div>
+                  </div>
             </div>
           </div>
         </div>

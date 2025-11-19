@@ -122,7 +122,7 @@ export default function ProductPage({ params }: ProductPageProps) {
                 <div className="grid grid-cols-1 gap-2">
                   {product.features.map((feature: any, index: any) => (
                     <div key={index} className="flex items-center gap-2">
-                      <Check className="h-4 w-4 text-primary flex-shrink-0" />
+                      <Check className="h-4 w-4 text-primary shrink-0" />
                       <span className="text-sm">{feature}</span>
                     </div>
                   ))}
@@ -148,7 +148,7 @@ export default function ProductPage({ params }: ProductPageProps) {
                   <div className="flex justify-center mb-2">
                     <Shield className="h-6 w-6 text-primary" />
                   </div>
-                  <div className="text-sm font-medium">5 Year Warranty</div>
+                  <div className="text-sm font-medium">2 Year Warranty</div>
                   <div className="text-xs text-muted-foreground">Full coverage</div>
                 </div>
                 <div className="text-center">

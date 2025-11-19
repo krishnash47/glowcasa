@@ -1,23 +1,99 @@
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import Link from "next/link"
-import Image from "next/image"
-import { ArrowRight, Zap, Shield, Leaf, Award, Star } from "lucide-react"
-import { getFeaturedProducts, getCategories } from "@/lib/products"
+"use client";
 
-export default function HomePage() {
-  const featuredProducts = getFeaturedProducts(4)
-  const categories = getCategories()
+
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import Link from "next/link";
+import Image from "next/image";
+import { ArrowRight, Zap, Shield, Leaf, Award, Star, Calculator } from "lucide-react";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
+import { getFeaturedProducts, getCategories } from "@/lib/products";
+type RoomType =
+  | "Bedroom"
+  | "Living Room"
+  | "Kitchen"
+  | "Office"
+  | "Balcony & Outdoor"
+  | "Factory";
+
+type CalcResult = {
+  area: string;
+  lumens: number;
+  watts: string;
+  suggestion: string;
+};
+
+export default function HomePage() 
+{
+  const featuredProducts = getFeaturedProducts(4);
+  const categories = getCategories();
+
+  // Calculator state
+ const [calc, setCalc] = useState<{
+  roomType: RoomType;
+  unit: string;
+  width: string;
+  length: string;
+  intensity: string;
+  wallColor: string;
+}>({
+  roomType: "Bedroom",
+  unit: "feet",
+  width: "",
+  length: "",
+  intensity: "medium",
+  wallColor: "light",
+});
+
+const [result, setResult] = useState<CalcResult | null>(null);
+
+  const calculate = () => {
+    const { width, length, unit, intensity, wallColor, roomType } = calc;
+
+    if (!width || !length) return alert("Enter valid dimensions");
+
+    let w = parseFloat(width);
+    let l = parseFloat(length);
+
+    if (unit === "meters") {
+      w *= 3.28084;
+      l *= 3.28084;
+    }
+
+    const area = w * l;
+    const lumenRate = intensity === "low" ? 10 : intensity === "medium" ? 20 : 35;
+
+    let lumens = area * lumenRate;
+    if (wallColor === "dark") lumens *= 1.2;
+
+    const watts = lumens / 100;
+
+    const suggestions = {
+      Bedroom: "Use COB, Panel, Rope light, Strip light, Spot lights.",
+      "Living Room": "Use COB, Panel, Concealed, Tiltable Cylinder.",
+      Kitchen: "Use Panel light, Strip light, Spot light.",
+      Office: "Use 2×2 Panel, Track Light.",
+      "Balcony & Outdoor": "Use Up-Down, Spike, Deep Junction.",
+      Factory: "Use High Bay, Flood Light, Street Light.",
+    };
+
+    setResult({
+      area: area.toFixed(2),
+      lumens: Math.round(lumens),
+      watts: watts.toFixed(1),
+      suggestion: suggestions[roomType],
+    });
+  };
 
   return (
     <div className="min-h-screen bg-background">
       <Header />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-background via-muted/30 to-card">
+      <section className="relative overflow-hidden bg-linear-to-br from-background via-muted/30 to-card">
         <div className="container mx-auto px-4 py-20 lg:py-32">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
             <div className="flex flex-col justify-center space-y-8">
@@ -26,11 +102,10 @@ export default function HomePage() {
                   Leading Lighting Solutions
                 </Badge>
                 <h1 className="text-4xl font-bold tracking-tight text-balance lg:text-6xl">
-                  Illuminate Your World with <span className="text-primary">Smart Lighting</span>
+                  Brighter And Affordable <span className="text-primary">Lighting Solution</span>
                 </h1>
                 <p className="text-xl text-muted-foreground text-pretty">
-                  Discover our comprehensive range of energy-efficient LED lights, smart lighting systems, and
-                  industrial solutions designed to brighten every space with innovation and sustainability.
+                  Welcome to GlowCasa Lighting, a leading name in innovative and energy-efficient lighting solutions. We design and deliver high-performance LED products that bring brilliance, comfort, and style to every space — from homes and offices to commercial and industrial environments. With a strong dealer and distributor network across India, we are committed to illuminating lives with cutting-edge technology, reliable performance, and elegant design.
                 </p>
               </div>
               <div className="flex flex-col gap-4 sm:flex-row">
@@ -45,23 +120,15 @@ export default function HomePage() {
               </div>
               <div className="flex items-center gap-8 pt-4">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">50K+</div>
-                  <div className="text-sm text-muted-foreground">Happy Customers</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">1000+</div>
-                  <div className="text-sm text-muted-foreground">Projects Completed</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">15+</div>
-                  <div className="text-sm text-muted-foreground">Years Experience</div>
+                  <div className="text-2xl font-bold text-primary">500+</div>
+                  <div className="text-sm text-muted-foreground">Dealer Distributor Network</div>
                 </div>
               </div>
             </div>
             <div className="relative">
               <div className="relative h-[400px] lg:h-[600px]">
                 <Image
-                  src="https://res.cloudinary.com/dzdyydnkj/image/upload/v1763017661/modern-led-lighting-installation-in-office-space_m1mimz.jpg"
+                  src="/home.jpg"
                   alt="Modern LED lighting installation"
                   fill
                   className="object-cover rounded-lg shadow-2xl"
@@ -77,7 +144,7 @@ export default function HomePage() {
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center space-y-4 mb-16">
-            <h2 className="text-3xl font-bold text-balance">Why Choose glowcasa?</h2>
+            <h2 className="text-3xl font-bold text-balance">Why Choose GlowCasa?</h2>
             <p className="text-xl text-muted-foreground text-pretty max-w-2xl mx-auto">
               We deliver cutting-edge lighting solutions that combine innovation, efficiency, and sustainability.
             </p>
@@ -141,6 +208,132 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      {/* Lumens Calculator Section */}
+      <section className="py-20 bg-primary/5">
+        <div className="container mx-auto px-4 max-w-3xl">
+          <div className="text-center space-y-4 mb-10">
+            <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-lg bg-primary/10">
+              <Calculator className="h-8 w-8 text-primary" />
+            </div>
+            <h2 className="text-3xl font-bold text-balance">GlowCasa Lumen & Watt Calculator</h2>
+            <p className="text-xl text-muted-foreground text-pretty max-w-2xl mx-auto">
+              Calculate the perfect lighting requirements for your space with our advanced calculator.
+            </p>
+          </div>
+
+          <Card className="p-6 shadow-lg border-primary/30">
+            <div className="grid grid-cols-1 gap-6">
+              {/* Room Type */}
+              <div>
+                <label className="block text-sm font-medium mb-2">Room Type</label>
+                <select
+                  className="w-full p-3 border rounded-md bg-background"
+                  value={calc.roomType}
+                  onChange={(e) => setCalc({...calc,roomType: e.target.value as RoomType})}
+
+                >
+                  <option>Bedroom</option>
+                  <option>Living Room</option>
+                  <option>Kitchen</option>
+                  <option>Office</option>
+                </select>
+              </div>
+
+              {/* Unit */}
+              <div>
+                <label className="block text-sm font-medium mb-2">Measurement Unit</label>
+                <select
+                  className="w-full p-3 border rounded-md bg-background"
+                  value={calc.unit}
+                  onChange={(e) => setCalc({ ...calc, unit: e.target.value })}
+                >
+                  <option value="feet">Feet</option>
+                  <option value="meters">Meters</option>
+                </select>
+              </div>
+
+              {/* Room Width */}
+              <div>
+                <label className="block text-sm font-medium mb-2">Room Width</label>
+                <input
+                  type="number"
+                  placeholder={`Enter width in ${calc.unit}`}  //  to show why do it work as fast as we like it to work and that will help me to grow an be rich as much as i want
+                  className="w-full p-3 border rounded-md bg-background"
+                  value={calc.width}
+                  onChange={(e) => setCalc({ ...calc, width: e.target.value })}
+                />
+              </div>
+
+              {/* Room Length */}
+              <div>
+                <label className="block text-sm font-medium mb-2">Room Length</label>
+                <input
+                  type="number"
+                  placeholder={`Enter length in ${calc.unit}`}
+                  className="w-full p-3 border rounded-md bg-background"
+                  value={calc.length}
+                  onChange={(e) => setCalc({ ...calc, length: e.target.value })}
+                />
+              </div>
+
+              {/* Intensity */}
+              <div>
+                <label className="block text-sm font-medium mb-2">Light Intensity</label>
+                <select
+                  className="w-full p-3 border rounded-md bg-background"
+                  value={calc.intensity}
+                  onChange={(e) => setCalc({ ...calc, intensity: e.target.value })}
+                >
+                  <option value="low">Low</option>
+                  <option value="medium">Medium</option>
+                  <option value="high">High</option>
+                </select>
+              </div>
+
+              {/* Wall Color */}
+              <div>
+                <label className="block text-sm font-medium mb-2">Wall Color</label>
+                <select
+                  className="w-full p-3 border rounded-md bg-background"
+                  value={calc.wallColor}
+                  onChange={(e) => setCalc({ ...calc, wallColor: e.target.value })}
+                >
+                  <option value="light">Light Walls</option>
+                  <option value="dark">Dark Walls</option>
+                </select>
+              </div>
+
+              <Button className="w-full py-6 text-lg" onClick={calculate}>
+                Calculate Lighting Requirements
+              </Button>
+
+              {result && (
+                <div className="p-6 bg-primary/10 border-l-4 border-primary rounded-lg mt-4">
+                  <h3 className="text-lg font-bold mb-4 text-primary">Your Lighting Requirements:</h3>
+                  <div className="space-y-3">
+                    <p className="flex justify-between">
+                      <span className="font-medium">Room Area:</span>
+                      <span className="font-bold">{result.area} sq ft</span>
+                    </p>
+                    <p className="flex justify-between">
+                      <span className="font-medium">Total Lumens:</span>
+                      <span className="font-bold">{result.lumens} lm</span>
+                    </p>
+                    <p className="flex justify-between">
+                      <span className="font-medium">Recommended Wattage:</span>
+                      <span className="font-bold">{result.watts} W</span>
+                    </p>
+                    <div className="pt-3 border-t">
+                      <p className="font-medium mb-2">Product Suggestion:</p>
+                      <p className="text-sm text-muted-foreground">{result.suggestion}</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </Card>
+        </div>
+      </section>
 
       {/* Product Categories */}
       <section className="py-20">
@@ -153,29 +346,30 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {categories.map((category) => {
-              return <Card key={category.id} className="group hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="relative h-48 mb-4 overflow-hidden rounded-lg">
-                    
-                    <Image
-                      src={category.image}
-                      alt={category.name}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  <CardTitle>{category.name}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="mb-4">{category.description}</CardDescription>
-                  <Button variant="outline" size="sm" asChild>
-                    <Link href={`/products?category=${category.id}`}>
-                      View Products <ArrowRight className="ml-2 h-3 w-3" />
-                    </Link>
-                  </Button>
-                </CardContent>
-              </Card>
-})}
+              return (
+                <Card key={category.id} className="group hover:shadow-lg transition-shadow">
+                  <CardHeader>
+                    <div className="relative h-48 mb-4 overflow-hidden rounded-lg">
+                      <Image
+                        src={category.image}
+                        alt={category.name}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <CardTitle>{category.name}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription className="mb-4">{category.description}</CardDescription>
+                    <Button variant="outline" size="sm" asChild>
+                      <Link href={`/products?category=${category.id}`}>
+                        View Products <ArrowRight className="ml-2 h-3 w-3" />
+                      </Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -250,7 +444,7 @@ export default function HomePage() {
                 className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary bg-transparent"
                 asChild
               >
-                <Link href="/products">Browse Catalog</Link>
+                <Link href="/products">Browse Products</Link>
               </Button>
             </div>
           </div>
@@ -259,5 +453,5 @@ export default function HomePage() {
 
       <Footer />
     </div>
-  )
+  );
 }
