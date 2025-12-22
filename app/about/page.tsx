@@ -11,16 +11,6 @@ import { useState, useMemo } from "react"
 // Private team data - only shown when searched
 const TEAM_DATA = [
   {
-    id: 1,
-    name: "Pradeep Swami",
-    city: "Jaipur",
-    region: "north",
-    phone: "+91 97854-50390",
-    email: "pradeep.glowcasapvtltd@gmail.com",
-    description: "Covering North Jaipur region",
-    initials: "PS"
-  },
-  {
     id: 2,
     name: "Dilip Kumar Dubay",
     city: "Indore",
